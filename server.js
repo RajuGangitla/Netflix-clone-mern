@@ -24,9 +24,8 @@ app.use("/api/user", userRoutes)
 
 //static files
 app.use(express.static(path.join(__dirname, './client/build')))
-app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
-  });
+app.get('*', function (request, response) {
+    response.sendFile(path.resolve(__dir
 
-  
+
 app.listen(5000,()=>{console.log("Server started")} )
