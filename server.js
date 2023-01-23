@@ -23,9 +23,10 @@ mongoose.connect(process.env.MONGO_URL)
 app.use("/api/user", userRoutes)
 
 //static files
-app.use(express.static(path.join(__dirname, './client/build')))
+app.use(express.static(path.resolve(__dirname, './client/build')));
 app.get('*', function (request, response) {
-    response.sendFile(path.resolve(__dir
+    response.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+  });
 
 
 app.listen(5000,()=>{console.log("Server started")} )
