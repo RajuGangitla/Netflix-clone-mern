@@ -19,6 +19,7 @@ mongoose.connect(process.env.MONGO_URL)
     console.log('error',err)
 })
 
+const port = process.env.port || 5000;
 
 app.use("/api/user", userRoutes)
 
@@ -29,4 +30,4 @@ app.get('*', function (request, response) {
   });
 
 
-app.listen(5000,()=>{console.log("Server started")} )
+app.listen(port,()=>{console.log("Server started")} )
